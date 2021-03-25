@@ -3,10 +3,18 @@ const pool = require('./build/utils/pool');
 
 const PORT = process.env.PORT || 7890;
 
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Started on ${PORT}`);
+const io = require('socket.io')(
+  app.listen(PORT, () => {
+    console.log(`Started on ${PORT}`);
+  }), {
+    cors: {
+      origin: true
+    }
 });
+
+io.on('connection', (socket) => {
+  console.log('user has connected');
+})
 
 process.on('exit', () => {
   console.log('Goodbye!');
