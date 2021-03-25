@@ -7,4 +7,8 @@ module.exports = `
   <ol></ol>
   <ol></ol>
 </ul>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+</script>
 `
